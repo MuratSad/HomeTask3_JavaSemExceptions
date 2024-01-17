@@ -30,15 +30,10 @@ public class Main {
             System.out.println("Данные успешно записаны в файл.");
         } catch (NumberFormatException e) {
             System.out.println("Ошибка: Введено неверное значение номера телефона.");
-            e.printStackTrace();
         } catch (IllegalArgumentException e) {
             System.out.println("Ошибка: " + e.getMessage());
-            e.printStackTrace();
-            continueInput = true;
         } catch (Exception e) {
             System.out.println("Ошибка: " + e.getMessage());
-            e.printStackTrace();
-            continueInput = true;
         }
             if (!continueInput) {
                 System.out.println("Хотите ввести данные еще одного человека? (yes/no)");

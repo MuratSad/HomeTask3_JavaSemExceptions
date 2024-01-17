@@ -2,17 +2,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class main {
+public class Main {
 
     public static void main(String[] args) {
-        try {
-            Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        boolean continueInput;do {
+            continueInput = false;
+            try {
             System.out.println("Введите данные в формате: Фамилия Имя Отчество дата рождения номертелефона пол");
             String inputData = scanner.nextLine();
-            scanner.close();
-
             String[] data = inputData.split(" ");
-
             if (data.length != 6) {
                 throw new IllegalArgumentException("Неверное количество данных. Должно быть 6.");
             }
@@ -35,10 +34,19 @@ public class main {
         } catch (IllegalArgumentException e) {
             System.out.println("Ошибка: " + e.getMessage());
             e.printStackTrace();
+            continueInput = true;
         } catch (Exception e) {
             System.out.println("Ошибка: " + e.getMessage());
             e.printStackTrace();
+            continueInput = true;
         }
+            if (!continueInput) {
+                System.out.println("Хотите ввести данные еще одного человека? (yes/no)");
+                String answer = scanner.nextLine();
+                continueInput = answer.equalsIgnoreCase("yes");
+            }
+        } while (continueInput);
+        scanner.close();
     }
 
     private static void validateData(String surname, String name, String patronymic, String birthDate, long phoneNumber, String gender) {

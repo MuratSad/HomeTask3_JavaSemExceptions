@@ -9,7 +9,8 @@ public class Main {
         boolean continueInput;do {
             continueInput = false;
             try {
-            System.out.println("Введите данные в формате: Фамилия Имя Отчество дата рождения номертелефона пол");
+            System.out.println("Введите данные в формате: Фамилия Имя Отчество дата рождения номер телефона пол");
+                System.out.println("Пример: Петров Илья Сидорович 01.12.2000 2321243 m");
             String inputData = scanner.nextLine();
             String[] data = inputData.split(" ");
             if (data.length != 6) {
